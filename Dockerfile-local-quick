@@ -1,0 +1,7 @@
+FROM registry.cn-hangzhou.aliyuncs.com/fordisk/go-infra:v1.0.0-linux-amd64
+WORKDIR /app/
+COPY /bin/dumper /app/dumper
+COPY /config /app/config
+RUN echo 'Asia/Shanghai' >/etc/timezone
+ENV TZ='Asia/Shanghai'
+ENTRYPOINT ["/app/dumper"]
